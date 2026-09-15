@@ -1,0 +1,1 @@
+"""vLLM-compatible provider adapter."""
