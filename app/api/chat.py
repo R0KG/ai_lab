@@ -5,10 +5,11 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.config import get_settings
+from app.core.config import Settings, get_settings
 from app.db.database import get_db
 from app.embeddings.local import OllamaEmbeddingProvider
-from app.llm.base import LLMProviderError
+from app.llm.base import LLMProvider, LLMProviderError
+from app.llm.bedrock import BedrockLLMProvider
 from app.llm.ollama import OllamaLLMProvider
 from app.rag.pipeline import RAGPipeline
 from app.rag.retriever import Retriever
@@ -19,6 +20,23 @@ router = APIRouter(
     prefix="/v1/chat",
     tags=["chat"],
 )
+
+
+def build_llm_provider(settings: Settings) -> LLMProvider:
+    """Build the configured text-generation provider."""
+
+    if settings.llm_backend == "ollama":
+        return OllamaLLMProvider(
+            base_url=settings.ollama_base_url,
+            model=settings.ollama_model,
+        )
+    if settings.llm_backend == "bedrock":
+        return BedrockLLMProvider(
+            region=settings.aws_region,
+            model_id=settings.aws_bedrock_model_id,
+            profile=settings.aws_profile,
+        )
+    raise ValueError(f"Unsupported LLM backend: {settings.llm_backend}")
 
 
 def get_rag_pipeline(
@@ -32,12 +50,7 @@ def get_rag_pipeline(
         base_url=settings.ollama_base_url,
         model=settings.ollama_embedding_model,
     )
-
-    llm_provider = OllamaLLMProvider(
-        base_url=settings.ollama_base_url,
-        model=settings.ollama_model,
-    )
-
+    llm_provider = build_llm_provider(settings)
     retriever = Retriever(
         chunk_repository=ChunkRepository(db),
         embedding_provider=embedding_provider,
@@ -57,11 +70,7 @@ async def chat(
     """Answer a question using retrieved document context."""
 
     settings = get_settings()
-    effective_limit = (
-        payload.limit
-        if payload.limit is not None
-        else settings.top_k
-    )
+    effective_limit = payload.limit if payload.limit is not None else settings.top_k
 
     try:
         result = await pipeline.answer(

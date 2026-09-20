@@ -1,6 +1,7 @@
 """Application configuration loaded from environment variables and ``.env``."""
 
 from functools import lru_cache
+from typing import Literal
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -17,6 +18,7 @@ class Settings(BaseSettings):
         "postgresql+psycopg://postgres:postgres@localhost:5432/enterprise_ai_lab"
     )
 
+    llm_backend: Literal["ollama", "bedrock"] = "ollama"
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "qwen2.5:7b"
     ollama_embedding_model: str = "embeddinggemma"

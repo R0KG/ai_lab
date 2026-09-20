@@ -43,10 +43,7 @@ class RAGPipeline:
             )
 
         context = "\n\n".join(
-            (
-                f"[Source {index}, page {item.chunk.page_number}]\n"
-                f"{item.chunk.text}"
-            )
+            (f"[Source {index}, page {item.chunk.page_number}]\n" f"{item.chunk.text}")
             for index, item in enumerate(retrieved_chunks, start=1)
         )
 
@@ -67,9 +64,9 @@ Context:
 Answer:
 """.strip()
 
-        generated_answer = await self.llm_provider.generate(prompt)
+        generated_response = await self.llm_provider.generate(prompt)
 
         return RAGAnswer(
-            answer=generated_answer,
+            answer=generated_response.text,
             sources=retrieved_chunks,
         )

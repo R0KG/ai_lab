@@ -5,7 +5,7 @@ from typing import Any
 
 import httpx
 
-from app.llm.base import LLMProviderError
+from app.llm.base import LLMProviderError, LLMResponse
 
 
 @dataclass
@@ -16,7 +16,7 @@ class OllamaLLMProvider:
     model: str
     timeout: float = 120.0
 
-    async def generate(self, prompt: str) -> str:
+    async def generate(self, prompt: str) -> LLMResponse:
         """Send a non-streaming chat request to Ollama."""
 
         normalized_prompt = prompt.strip()
@@ -54,9 +54,7 @@ class OllamaLLMProvider:
                     "Ollama returned an error while generating the answer"
                 ) from exc
             except httpx.HTTPError as exc:
-                raise LLMProviderError(
-                    "Could not connect to Ollama"
-                ) from exc
+                raise LLMProviderError("Could not connect to Ollama") from exc
 
             payload: Any = response.json()
 
@@ -73,4 +71,7 @@ class OllamaLLMProvider:
         if not isinstance(content, str):
             raise TypeError("Ollama message does not contain text content")
 
-        return content.strip()
+        return LLMResponse(
+            text=content.strip(),
+            model=self.model,
+        )

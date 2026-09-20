@@ -51,9 +51,10 @@ async def test_ollama_provider_sends_chat_request(monkeypatch) -> None:
         model="qwen2.5:7b",
     )
 
-    answer = await provider.generate("What is Python?")
+    response = await provider.generate("What is Python?")
 
-    assert answer == "grounded answer"
+    assert response.text == "grounded answer"
+    assert response.model == "qwen2.5:7b"
     assert FakeAsyncClient.last_request == {
         "path": "/api/chat",
         "json": {

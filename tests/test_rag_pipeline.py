@@ -2,6 +2,7 @@
 
 from uuid import uuid4
 
+from app.llm.base import LLMResponse
 from app.models.chunk import Chunk
 from app.rag.pipeline import RAGPipeline
 from app.rag.retriever import RetrievedChunk
@@ -38,9 +39,12 @@ class FakeLLMProvider:
     def __init__(self) -> None:
         self.prompt: str | None = None
 
-    async def generate(self, prompt: str) -> str:
+    async def generate(self, prompt: str) -> LLMResponse:
         self.prompt = prompt
-        return "Python is used for backend development."
+        return LLMResponse(
+            text="Python is used for backend development.",
+            model="fake-model",
+        )
 
 
 async def test_pipeline_retrieves_context_and_generates_answer() -> None:
