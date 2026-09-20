@@ -1,0 +1,316 @@
+[
+  {
+    "id": "q001",
+    "question": "Which programming languages are listed?",
+    "expected_answer": "Python, TypeScript/JavaScript, SQL, Java, Rust, Bash, and PowerShell are listed.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q002",
+    "question": "Which backend frameworks and API technologies are mentioned?",
+    "expected_answer": "FastAPI, Flask, REST, OpenAPI, Pydantic, asynchronous processing, and service integrations are mentioned.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "simple_lookup",
+    "answerable": true
+  },
+  {
+    "id": "q003",
+    "question": "Which databases are listed in the technical skills section?",
+    "expected_answer": "PostgreSQL, MongoDB, Amazon DocumentDB, Redis, and MariaDB are listed.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q004",
+    "question": "Which cloud and infrastructure technologies are listed?",
+    "expected_answer": "AWS S3, SQS, CloudWatch, DocumentDB, Docker, Linux, and Git are listed.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q005",
+    "question": "Which AI and agent-system technologies are listed?",
+    "expected_answer": "PyTorch, scikit-learn, NumPy, Pandas, spaCy, transformer models, LLM APIs, retrieval, structured outputs, tool calling, evaluation design, document classification, and structured extraction are listed.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q006",
+    "question": "Which security topics and tools are mentioned?",
+    "expected_answer": "Web and API security testing, OAuth and JWT, OWASP vulnerability classes, threat modeling, prompt injection, tool authorization, security validation, Burp Suite, and recon automation are mentioned.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q007",
+    "question": "What is Roman's current role and employer?",
+    "expected_answer": "He is a Software Engineer at FSM Rechtsanwälte in Vienna, Austria.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "simple_lookup",
+    "answerable": true
+  },
+  {
+    "id": "q008",
+    "question": "What does Roman do in his current Software Engineer role?",
+    "expected_answer": "He develops AWS-based components connecting Python backend services to React/TypeScript frontends, evaluates LLM-based retrieval and document-review workflows, conducts basic technical and security reviews, and improves database queries and document-processing workflows.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "summarization",
+    "answerable": true
+  },
+  {
+    "id": "q009",
+    "question": "When did Roman start his current Software Engineer role?",
+    "expected_answer": "He started in April 2026.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "simple_lookup",
+    "answerable": true
+  },
+  {
+    "id": "q010",
+    "question": "Where and when did Roman work as Lead Software Engineer?",
+    "expected_answer": "He worked at Schweinhammer Rechtsanwalt in Vienna from March 2025 to March 2026.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "simple_lookup",
+    "answerable": true
+  },
+  {
+    "id": "q011",
+    "question": "Which technologies were used in the AI-assisted document-processing application?",
+    "expected_answer": "Python backend services, React/TypeScript interfaces, MongoDB/DocumentDB, and AWS were used.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q012",
+    "question": "What asynchronous workflows did Roman build at Schweinhammer Rechtsanwalt?",
+    "expected_answer": "He built asynchronous OCR, document-classification, and structured-extraction workflows using Amazon SQS and commercial and open-source LLMs.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q013",
+    "question": "Which verification states did Roman handle explicitly?",
+    "expected_answer": "Successful, expired, missing, and failed verification states.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q014",
+    "question": "What did Roman develop for the fintech client project?",
+    "expected_answer": "He developed Python web services and REST APIs for fintech and banking-related workflows, plus AWS-hosted application components and integrations.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "summarization",
+    "answerable": true
+  },
+  {
+    "id": "q015",
+    "question": "When and where did Roman work as a Machine Learning Intern?",
+    "expected_answer": "He worked at NLABTEAM remotely from January 2022 to November 2022.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "simple_lookup",
+    "answerable": true
+  },
+  {
+    "id": "q016",
+    "question": "What NLP work did Roman do at NLABTEAM?",
+    "expected_answer": "He developed and improved NLP pipelines for chatbot applications, including text preprocessing, intent classification, entity extraction, and response workflows, using spaCy and transformer-based models.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "summarization",
+    "answerable": true
+  },
+  {
+    "id": "q017",
+    "question": "What was Roman's Technical Consultant experience?",
+    "expected_answer": "He developed and optimized Python ETL pipelines and advised on backend architecture, infrastructure security, deployment practices, and secure data handling.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "summarization",
+    "answerable": true
+  },
+  {
+    "id": "q018",
+    "question": "Which technologies are used in the Distributed Data-Processing Platform project?",
+    "expected_answer": "Rust, Python, Axum, Tokio, and Serde are used, with an HTTP API for CSV and telemetry datasets.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q019",
+    "question": "What does the Agent Security Evals project evaluate?",
+    "expected_answer": "It evaluates planned agent tool calls with allow, block, and approval-required decisions and covers prompt injection, secret exfiltration, privileged deployment, and approved operations.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "summarization",
+    "answerable": true
+  },
+  {
+    "id": "q020",
+    "question": "What is Roman's Bachelor thesis about?",
+    "expected_answer": "The thesis is about the security of autonomous AI agents, including prompt injection, memory poisoning, and tool authorization.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "simple_lookup",
+    "answerable": true
+  },
+  {
+    "id": "q021",
+    "question": "Which universities and degrees are listed?",
+    "expected_answer": "A B.Sc. in Computer Science from the University of Vienna and a B.Sc. in Physics from the Moscow Institute of Physics and Technology are listed.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "structured_extraction",
+    "answerable": true
+  },
+  {
+    "id": "q022",
+    "question": "What human languages does Roman speak?",
+    "expected_answer": "Russian is native, English is C1, and German is C1.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "simple_lookup",
+    "answerable": true
+  },
+  {
+    "id": "q023",
+    "question": "Summarize Roman's career from his current role through his earlier experience.",
+    "expected_answer": "The CV describes current AWS and document-review work, prior AI-assisted document processing, fintech backend services, NLP and chatbot work, and Python ETL and architecture consulting.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1, 2],
+    "category": "multi_page",
+    "answerable": true
+  },
+  {
+    "id": "q024",
+    "question": "Welche Programmiersprachen werden im Lebenslauf genannt?",
+    "expected_answer": "Python, TypeScript/JavaScript, SQL, Java, Rust, Bash und PowerShell werden genannt.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1],
+    "category": "german_question",
+    "answerable": true
+  },
+  {
+    "id": "q025",
+    "question": "Welche Abschlüsse hat Roman?",
+    "expected_answer": "Er hat einen B.Sc. in Computer Science von der Universität Wien und einen B.Sc. in Physik vom Moskauer Institut für Physik und Technologie.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [2],
+    "category": "german_question",
+    "answerable": true
+  },
+  {
+    "id": "q026",
+    "question": "What kind of work has Roman done with documents?",
+    "expected_answer": "He has worked on document screening, document review, document processing, OCR, document classification, structured extraction, and procurement and legal documents.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [1, 2],
+    "category": "ambiguous",
+    "answerable": true
+  },
+  {
+    "id": "q027",
+    "question": "What is Roman's current salary?",
+    "expected_answer": "The document does not contain salary information.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [],
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "q028",
+    "question": "Which football club does Roman support?",
+    "expected_answer": "The document does not contain this information.",
+    "relevant_documents": ["Roman_Merkulov_CV.pdf"],
+    "document_id": "b6b98133-7953-42df-a1d7-80751a639715",
+    "relevant_pages": [],
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "q029",
+    "question": "How do the Platform Engineer and Frontend Engineer roles differ?",
+    "expected_answer": "The Platform Engineer profile focuses on AWS, Kubernetes, Terraform, GitOps, reliability, and platform security, while the Frontend Engineer profile focuses on React, TypeScript, API integration, browser workflows, and frontend testing.",
+    "relevant_documents": [
+      "Roman_Merkulov_CV_Platform_Engineer.pdf",
+      "Roman_Merkulov_CV_Frontend_Engineer.pdf"
+    ],
+    "relevant_document_ids": [
+      "dfbfd3a3-39b9-4ce0-81a0-d9c9d3034d94",
+      "ed8dc869-074f-4a01-b912-38bb6145bd19"
+    ],
+    "document_id": null,
+    "relevant_pages": [],
+    "category": "multi_document",
+    "answerable": true
+  },
+  {
+    "id": "q030",
+    "question": "Which GenAI and cloud platforms are highlighted across the two AI consultant CVs?",
+    "expected_answer": "The profiles highlight Azure OpenAI, Microsoft Foundry, Azure AI Search, Amazon Bedrock, AWS Lambda, Step Functions, API Gateway, DynamoDB, CloudWatch, IAM, and KMS.",
+    "relevant_documents": [
+      "Roman_Merkulov_CV_AI_Consultant_ServiceNow_Azure.pdf",
+      "Roman_Merkulov_CV_AI_Consultant_GenAI_Azure_AWS.pdf"
+    ],
+    "relevant_document_ids": [
+      "647ffcd7-12f5-4aa3-8ebd-99fe80a9b57f",
+      "ed227da4-cc69-4e25-888a-8db9bc1dd8e6"
+    ],
+    "document_id": null,
+    "relevant_pages": [],
+    "category": "multi_document",
+    "answerable": true
+  }
+]
