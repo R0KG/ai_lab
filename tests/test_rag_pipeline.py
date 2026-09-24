@@ -59,7 +59,10 @@ async def test_pipeline_retrieves_context_and_generates_answer() -> None:
         query="What is Python used for?",
         limit=5,
     )
-
+    assert llm_provider.prompt is not None
+    assert "What is Python used for?" in llm_provider.prompt
+    assert "[Source 1, page 2]" in llm_provider.prompt
+    assert "Use only facts supported by the context" in llm_provider.prompt
     assert retriever.query == "What is Python used for?"
     assert retriever.limit == 5
     assert result.answer == "Python is used for backend development."
