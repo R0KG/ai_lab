@@ -20,5 +20,6 @@ class DocumentResponse(BaseModel):
     name: str
     source_uri: str | None
     content_type: str | None
+    checksum: str | None
 
     document_metadata: dict[str, Any]
