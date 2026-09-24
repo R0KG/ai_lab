@@ -50,27 +50,56 @@ def calculate_document_recall(
     return len(matched_documents) / len(expected_document_ids)
 
 
+async def resolve_document_id(
+    client: httpx.AsyncClient,
+    checksum: str,
+    cache: dict[str, str],
+) -> str:
+    """Resolve a stable dataset checksum to its current database UUID."""
+
+    if checksum not in cache:
+        response = await client.get(f"/v1/documents/by-checksum/{checksum}")
+        response.raise_for_status()
+        cache[checksum] = str(response.json()["id"])
+
+    return cache[checksum]
+
+
 async def evaluate_case(
     client: httpx.AsyncClient,
     case: dict[str, Any],
+    document_ids_by_checksum: dict[str, str],
 ) -> dict[str, Any]:
     """Evaluate retrieval and answer generation for one case."""
 
     expected_pages = {int(page) for page in case["relevant_pages"]}
-    explicit_document_ids = {
-        str(document_id)
-        for document_id in case.get("relevant_document_ids", [])
-    }
-    expected_document_ids = set(explicit_document_ids)
-    if not expected_document_ids and case.get("document_id"):
-        expected_document_ids.add(str(case["document_id"]))
+    if case.get("document_checksum"):
+        document_id = await resolve_document_id(
+            client,
+            case["document_checksum"],
+            document_ids_by_checksum,
+        )
+        expected_document_ids = {document_id}
+        explicit_document_ids: set[str] = set()
+    else:
+        document_ids = {
+            await resolve_document_id(
+                client,
+                checksum,
+                document_ids_by_checksum,
+            )
+            for checksum in case["relevant_document_checksums"]
+        }
+        document_id = None
+        expected_document_ids = document_ids
+        explicit_document_ids = document_ids
 
     search_params: dict[str, Any] = {
         "q": case["question"],
         "limit": TOP_K,
     }
-    if case.get("document_id"):
-        search_params["document_id"] = case["document_id"]
+    if document_id is not None:
+        search_params["document_id"] = document_id
 
     search_started_at = time.perf_counter()
     search_response = await client.get(
@@ -109,7 +138,7 @@ async def evaluate_case(
         json={
             "query": case["question"],
             "limit": TOP_K,
-            "document_id": case.get("document_id"),
+            "document_id": document_id,
         },
     )
     chat_response.raise_for_status()
@@ -149,8 +178,13 @@ async def main() -> None:
         base_url=API_URL,
         timeout=60.0,
     ) as client:
+        document_ids_by_checksum: dict[str, str] = {}
         for case in cases:
-            result = await evaluate_case(client, case)
+            result = await evaluate_case(
+                client,
+                case,
+                document_ids_by_checksum,
+            )
             results.append(result)
 
             recall = result["recall_at_k"]
